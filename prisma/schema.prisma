@@ -13,7 +13,10 @@ model User {
   password String?
   name     String?
   image    String?
+  role     Role @default(USER)
+  plan     Plan @default(FREE)
 
+  posts Post[]
   accounts Account[]
 
   @@map("users")
@@ -29,4 +32,26 @@ model Account {
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
+}
+
+model Post {
+  id String @id @default(uuid())
+  title String
+  body String
+  userId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("posts")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Plan {
+  FREE
+  PAID
+  PREMIUM
 }
