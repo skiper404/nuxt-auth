@@ -23,6 +23,7 @@ export default defineOAuthGitHubEventHandler({
 					name: account.user.name,
 					image: account.user.image,
 					role: account.user.role,
+					plan: account.user.plan,
 				},
 				secure: { tokens },
 			})
@@ -46,6 +47,8 @@ export default defineOAuthGitHubEventHandler({
 					email: existingUser.email,
 					name: existingUser.name,
 					image: existingUser.image,
+					role: existingUser.role,
+					plan: existingUser.plan,
 				},
 				secure: { tokens },
 			})
@@ -67,6 +70,8 @@ export default defineOAuthGitHubEventHandler({
 				email: newUser.email,
 				name: newUser.name,
 				image: newUser.image,
+				role: newUser.role,
+				plan: newUser.plan,
 			},
 			secure: { tokens },
 		})

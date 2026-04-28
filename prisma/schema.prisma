@@ -13,7 +13,8 @@ model User {
   password String?
   name     String?
   image    String?
-  role     String @default("user")
+  role     Role @default(USER)
+  plan     Plan @default(FREE)
 
   posts Post[]
   accounts Account[]
@@ -42,4 +43,15 @@ model Post {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("posts")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Plan {
+  FREE
+  PAID
+  PREMIUM
 }

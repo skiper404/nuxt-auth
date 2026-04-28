@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import type { PostWithAuthor } from '~/shared/types/post'
-import {
-	canRemove,
-	isAdmin,
-	isAuthenticated,
-	isAuthor,
-} from '~/shared/utils/abilities'
+import { canRemove } from '~/shared/utils/abilities'
 
 const emit = defineEmits<{ (e: 'deletePost'): void }>()
 
@@ -31,7 +26,7 @@ const removePost = async (id: String) => {
 			</div>
 		</div>
 
-		<Can :ability="[isAuthor]" :args="[[post]]">
+		<Can :ability="[canRemove]" :args="[[post]]">
 			<button
 				class="text-red-300 hover:text-red-400 ml-auto"
 				@click="removePost(post.id)"

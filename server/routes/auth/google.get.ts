@@ -23,6 +23,7 @@ export default defineOAuthGoogleEventHandler({
 					name: account.user.name,
 					image: account.user.image,
 					role: account.user.role,
+					plan: account.user.plan,
 				},
 				secure: { tokens },
 			})
@@ -47,6 +48,7 @@ export default defineOAuthGoogleEventHandler({
 					name: existingUser.name,
 					image: existingUser.image,
 					role: existingUser.role,
+					plan: existingUser.plan,
 				},
 				secure: { tokens },
 			})
@@ -69,6 +71,7 @@ export default defineOAuthGoogleEventHandler({
 				name: newUser.name,
 				image: newUser.image,
 				role: newUser.role,
+				plan: newUser.plan,
 			},
 			secure: { tokens },
 		})

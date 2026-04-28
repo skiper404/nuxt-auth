@@ -30,6 +30,7 @@ export default defineEventHandler(async (event) => {
 			name: user.name,
 			image: user.image,
 			role: user.role,
+			plan: user.plan,
 		},
 	})
 	return sendRedirect(event, '/')
