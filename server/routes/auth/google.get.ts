@@ -22,6 +22,7 @@ export default defineOAuthGoogleEventHandler({
 					email: account.user.email,
 					name: account.user.name,
 					image: account.user.image,
+					role: account.user.role,
 				},
 				secure: { tokens },
 			})
@@ -45,6 +46,7 @@ export default defineOAuthGoogleEventHandler({
 					email: existingUser.email,
 					name: existingUser.name,
 					image: existingUser.image,
+					role: existingUser.role,
 				},
 				secure: { tokens },
 			})
@@ -66,6 +68,7 @@ export default defineOAuthGoogleEventHandler({
 				email: newUser.email,
 				name: newUser.name,
 				image: newUser.image,
+				role: newUser.role,
 			},
 			secure: { tokens },
 		})

@@ -27,3 +27,8 @@ export type User = Prisma.UserModel
  * 
  */
 export type Account = Prisma.AccountModel
+/**
+ * Model Post
+ * 
+ */
+export type Post = Prisma.PostModel

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { isAuthenticated } from '~/shared/utils/abilities'
+definePageMeta({ middleware: ['auth'] })
 
-const { loggedIn, user, clear } = useUserSession()
+const { user, clear } = useUserSession()
 
 const signOut = async () => {
 	await clear()
@@ -11,22 +11,9 @@ const signOut = async () => {
 
 <template>
 	<div>
-		<div>loggedIn: {{ loggedIn }}</div>
-		<div>user:{{ user }}</div>
+		<div>Role: {{ user?.role }}</div>
+		<div>User: {{ user?.email || user?.name }}</div>
 		<button @click="signOut">SignOut</button>
-
-		<div class="mt-10">
-			<Can :ability="isAuthenticated">
-				<p class="text-green-500">
-					You can see this text cause you are authorized as user
-				</p>
-			</Can>
-
-			<Cannot :ability="isAuthenticated">
-				<p class="text-red-500">
-					You cannot see this text cause you are authorized as user
-				</p>
-			</Cannot>
-		</div>
+		<AppPosts />
 	</div>
 </template>

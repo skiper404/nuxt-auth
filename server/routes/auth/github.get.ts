@@ -22,6 +22,7 @@ export default defineOAuthGitHubEventHandler({
 					email: account.user.email,
 					name: account.user.name,
 					image: account.user.image,
+					role: account.user.role,
 				},
 				secure: { tokens },
 			})
